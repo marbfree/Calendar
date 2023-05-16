@@ -3,21 +3,17 @@
 // in the html.
 $(document).ready(function () {
 
-
-  // let saveBtn = $('.btn');
   $('.saveBtn').on('click', function(){
     let value = $(this).siblings(".description").val();
     let time = $(this).parent().attr("id");
-    // console.log('button clicked');
-    // let textInputValue = $('textarea[rows="3"]').val();
-    // console.log(textInputValue);
+
+    $("#hour-9").children(".description").text(localStorage.getItem(time));
+   
     localStorage.setItem(time, value);
-    // console.log(textInputValue);
-    // alert(localStorage.getItem("textInput"));
-    // window.localStorage.textInput = textInputValue
-  });
-    // localStorage.getItem
-    // localStoreage.getItem, 8, identify where, parent line, over where, target what want, value
+   
+  });    
+  
+  // localStoreage.getItem, 8, identify where, parent line, over where, target what want, value
 
     function updateHours() {
       let currentTime = dayjs().hour(); 
@@ -31,22 +27,12 @@ $(document).ready(function () {
         $(this).removeClass("past");
         $(this).addClass("present");
       } else {
-// finishing coding 3 lines
-      } 
+        $(this).removeClass("past");
+        $(this).removeClass("present");
+      } $(this).addClass("future");
     })};
 updateHours();
 // look up timers in w3 schools, syntax of counter, not timeout
-
-  // localStorage.setItem("hour-9", )
-
-  // let rootEl = $('#root');
-  // rootEl.children('body').children('div').add('<div>');
-
-  
-  // let divArray = ['hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17'];
-  // for (i = 0; i < divArray.length; i++);
-  // let setDivId = $("<div>", {id: divArray[i]});
-  // rootEl.children('div').children().append(setDivId);
 
 
 // 1. create divs for each hour 9-5
