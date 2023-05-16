@@ -8,13 +8,11 @@ $(document).ready(function () {
   $(".container-lg").prepend("<div id= 'hour-12' class='row time-block'+i><div class='col-2 col-md-1 hour text-center py-3'></div></div>");
 }
 
-$('.container-lg').children('div').siblings('div').append('<textarea class="col-8 col-md-10 description" rows="3" +i></textarea>')
-$('.container-lg').children('textarea').after('<button class="btn saveBtn col-2 col-md-1" aria-label="save">')
+$('.container-lg').children('div').siblings('div').append('<textarea class="col-8 col-md-10 description" rows="3" +i></textarea>');
+$('.container-lg').children('div').siblings('div').append('<button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>');
+// $('#description').siblings('button').append('<i class="fas fa-save" aria-hidden="true"></i>');
 
-  // $('.container-lg').siblings("<div class='col-2 col-md-1 hour text-center py-3'>12PM</div");
-  // $('#hour-12').children('div').after('<textarea class="col-8 col-md-10 description" rows="3"></textarea>')
-  // $('#hour-12').children('textarea').after('<button class="btn saveBtn col-2 col-md-1" aria-label="save">')
-  // $('#hour-8').children('button').children('<i class="fas fa-save" aria-hidden="true"></i>')
+
 
 
   $('.saveBtn').on('click', function(){
@@ -24,12 +22,6 @@ $('.container-lg').children('textarea').after('<button class="btn saveBtn col-2 
     localStorage.setItem(time, value);
   });    
 
-
-  // let buildHourBlocks = ['hour-8', 'hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17';]
-  // for (let i = 0; i < buildHourBlocks.length; i++){
-  // $(".container-lg").prepend[i]("<div></div>");
-  //   };
-  
   
 
     function updateHours() {
