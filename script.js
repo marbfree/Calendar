@@ -2,18 +2,23 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(document).ready(function () {
-
-  let buildHourBlocks = ""
   for (let i = 1; i <= 9; i++) {
   $(".container-lg").prepend("<div id= 'hour-12' class='row time-block'+i><div class='col-2 col-md-1 hour text-center py-3'></div></div>");
 }
 
 $('.container-lg').children('div').siblings('div').append('<textarea class="col-8 col-md-10 description" rows="3" +i></textarea>');
 $('.container-lg').children('div').siblings('div').append('<button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>');
-// $('#description').siblings('button').append('<i class="fas fa-save" aria-hidden="true"></i>');
 
+let hourOfDay = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
+  for (let i = 0; i < hourOfDay.length; i++){
+    $('.hour').text(hourOfDay[i]);
+  }
 
-
+  // to add id in a loop to each div
+// let hourID = ['hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17'];
+//   for (let i = 1; i <= hourID.length; i++){
+//     $('.time-block').addID(hourID[i]);
+//   }
 
   $('.saveBtn').on('click', function(){
     let value = $(this).siblings(".description").val();
@@ -21,8 +26,6 @@ $('.container-lg').children('div').siblings('div').append('<button class="btn sa
    
     localStorage.setItem(time, value);
   });    
-
-  
 
     function updateHours() {
       let currentTime = dayjs().hour(); 
@@ -79,6 +82,6 @@ $('.container-lg').children('div').siblings('div').append('<button class="btn sa
   $('#hour-10 .description').val(localStorage.getItem('hour-10'));
   $('#hour-11 .description').val(localStorage.getItem('hour-11'));
 
-
+$('#currentDay').text.dayjs(MMMM-d-YYYY);
   // TODO: Add code to display the current date in the header of the page.
 });
