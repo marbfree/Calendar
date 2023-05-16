@@ -3,11 +3,19 @@
 // in the html.
 $(document).ready(function () {
 
-  $(".container-lg").append("<div id= 'hour-12' class='row time-block'></div>");
-  $('#hour-12').append("<div class='col-2 col-md-1 hour text-center py-3'>12PM</div");
-  $('#hour-12').children('div').after('<textarea class="col-8 col-md-10 description" rows="3"></textarea>')
-  $('#hour-12').children('textarea').after('<button class="btn saveBtn col-2 col-md-1" aria-label="save">')
+  let buildHourBlocks = ""
+  for (let i = 1; i <= 9; i++) {
+  $(".container-lg").prepend("<div id= 'hour-12' class='row time-block'+i><div class='col-2 col-md-1 hour text-center py-3'></div></div>");
+}
+
+$('.container-lg').children('div').siblings('div').append('<textarea class="col-8 col-md-10 description" rows="3" +i></textarea>')
+$('.container-lg').children('textarea').after('<button class="btn saveBtn col-2 col-md-1" aria-label="save">')
+
+  // $('.container-lg').siblings("<div class='col-2 col-md-1 hour text-center py-3'>12PM</div");
+  // $('#hour-12').children('div').after('<textarea class="col-8 col-md-10 description" rows="3"></textarea>')
+  // $('#hour-12').children('textarea').after('<button class="btn saveBtn col-2 col-md-1" aria-label="save">')
   // $('#hour-8').children('button').children('<i class="fas fa-save" aria-hidden="true"></i>')
+
 
   $('.saveBtn').on('click', function(){
     let value = $(this).siblings(".description").val();
