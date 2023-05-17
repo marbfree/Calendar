@@ -3,36 +3,15 @@
 // in the html.
 $(document).ready(function () {
   
-  // creates 8 divs with 8 children for the styling of each hour block
-  for (let i = 1; i <= 9; i++) {
-  $(".container-lg").prepend("<div id='' class='row time-block'+i><div class='col-2 col-md-1 hour text-center py-3'></div></div>");
-  }
-  // creating textarea and button elements for each of the div children
-  $('.container-lg').children('div').siblings('div').append('<textarea class="col-8 col-md-10 description" rows="3" +i></textarea>');
-  $('.container-lg').children('div').siblings('div').append('<button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>');
-
-  // assigning the hour text to each div child or time-block
-  let hourOfDay = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
-    for (let i = 0; i < hourOfDay.length; i++){
-      // $('.hour-${i}').text(hourOfDay[i]);
-      $('.hour').text(hourOfDay[i]);
-};
-
-  // // to add id in a loop to each div
-  // let hourID = ['hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17'];  
-  // for (let i = 1; i < hourID.length; i++){
-  //   $('.time-block').addId(hourID[i]);
-  // };
-
   // saves text from text area to local storage
   $('.saveBtn').on('click', function(){
-    let value = $(this).siblings(".description").val();
-    let time = $(this).parent().attr("id");
-   
-    localStorage.setItem(time, value);
+    let value = $('.saveBtn').siblings(".description").val();
+    let time = $('.saveBtn').parent().attr("id");
+    
+      localStorage.setItem(time, value);
   });    
 
-  // gets current time from dayjs to compare and change past, present, and future styling
+  // current time from dayjs to compare and change past, present, and future styling
   function updateHours() {
     let currentTime = dayjs().hour(); 
     console.log(currentTime);
@@ -52,21 +31,27 @@ $(document).ready(function () {
       }
   })};
 
-  // update the hour every 15 min.
+  // update the hour every 15 min. (does this work/do I need this)
   setInterval(function(){
     updateHours}, 900000); 
 
   // runs the updateHours function
   updateHours();
 
-// 1. create divs for each hour 9-5
-//    a)create an object with each div id (hour-9, hour-10)? 
-//    b)use a for or each loop to give id to div
-//    c)give each div styling, text area, button, etc.
-// 2. how to use an id in the click event and in local storage
-// 3. create an if statement: if current hour === id hour, then have this styling
+  // Gets the local storage to display text from textarea upon refresh
+  $('#hour-9 .description').val(localStorage.getItem('hour-9'));
+  $('#hour-10 .description').val(localStorage.getItem('hour-10'));
+  $('#hour-11 .description').val(localStorage.getItem('hour-11'));
+  $('#hour-12 .description').val(localStorage.getItem('hour-12'));
+  $('#hour-13 .description').val(localStorage.getItem('hour-13'));
+  $('#hour-14 .description').val(localStorage.getItem('hour-14'));
+  $('#hour-15 .description').val(localStorage.getItem('hour-15'));
+  $('#hour-16 .description').val(localStorage.getItem('hour-16'));
+  $('#hour-17 .description').val(localStorage.getItem('hour-17'));
 
-
+  // displays the current date in the header of the page.
+  $('#currentDay').append(dayjs().format('MMMM-D-YYYY'));
+});
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -85,11 +70,5 @@ $(document).ready(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   
-  // Gets the local storage to display text from textarea upon refresh
-  $('#hour-9 .description').val(localStorage.getItem('hour-9'));
-  $('#hour-10 .description').val(localStorage.getItem('hour-10'));
-  $('#hour-11 .description').val(localStorage.getItem('hour-11'));
 
-  // displays the current date in the header of the page.
-  $('#currentDay').append(dayjs().format('MMMM-D-YYYY'));
-});
+
