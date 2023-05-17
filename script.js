@@ -90,6 +90,5 @@ $(document).ready(function () {
   $('#hour-11 .description').val(localStorage.getItem('hour-11'));
 
   // TODO: Add code to display the current date in the header of the page.
-
-  // $('#currentDay').text.dayjs(MMMM-d-YYYY);
+  $('#currentDay').append(dayjs().format('MMMM-D-YYYY'));
 });
