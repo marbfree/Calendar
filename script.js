@@ -5,7 +5,7 @@ $(document).ready(function () {
   
   // creates 8 divs with 8 children for the styling of each hour block
   for (let i = 1; i <= 9; i++) {
-  $(".container-lg").prepend("<div id= '' class='row time-block'+i><div class='col-2 col-md-1 hour text-center py-3'></div></div>");
+  $(".container-lg").prepend("<div id='' class='row time-block'+i><div class='col-2 col-md-1 hour text-center py-3'></div></div>");
   }
   // creating textarea and button elements for each of the div children
   $('.container-lg').children('div').siblings('div').append('<textarea class="col-8 col-md-10 description" rows="3" +i></textarea>');
@@ -17,10 +17,10 @@ $(document).ready(function () {
       $('.hour').text(hourOfDay[i]);
   }
 
-  // to add id in a loop to each div
-  // let hourID = ['hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17'];
-  //   for (let i = 1; i <= hourID.length; i++){
-  //   $('.time-block').addID(hourID[i]);
+  // // to add id in a loop to each div
+  // let hourID = ['hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17'];  
+  // for (let i = 1; i <= hourID.length; i++){
+  //   $('.time-block').add(id).attr(hourID[i]);
   // }
 
   // saves text from text area to local storage
@@ -89,6 +89,6 @@ $(document).ready(function () {
   $('#hour-10 .description').val(localStorage.getItem('hour-10'));
   $('#hour-11 .description').val(localStorage.getItem('hour-11'));
 
-  // TODO: Add code to display the current date in the header of the page.
+  // displays the current date in the header of the page.
   $('#currentDay').append(dayjs().format('MMMM-D-YYYY'));
 });
