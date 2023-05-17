@@ -11,17 +11,17 @@ $(document).ready(function () {
   $('.container-lg').children('div').siblings('div').append('<textarea class="col-8 col-md-10 description" rows="3" +i></textarea>');
   $('.container-lg').children('div').siblings('div').append('<button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>');
 
-  // assigning the hour text to each div child
+  // assigning the hour text to each div child or time-block
   let hourOfDay = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
     for (let i = 0; i < hourOfDay.length; i++){
       $('.hour').text(hourOfDay[i]);
   }
 
   // to add id in a loop to each div
-  let hourID = ['hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17'];
-    for (let i = 1; i <= hourID.length; i++){
-    $('.time-block').addID(hourID[i]);
-  }
+  // let hourID = ['hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17'];
+  //   for (let i = 1; i <= hourID.length; i++){
+  //   $('.time-block').addID(hourID[i]);
+  // }
 
   // saves text from text area to local storage
   $('.saveBtn').on('click', function(){
@@ -91,5 +91,5 @@ $(document).ready(function () {
 
   // TODO: Add code to display the current date in the header of the page.
 
-  $('#currentDay').text.dayjs(MMMM-d-YYYY);
+  // $('#currentDay').text.dayjs(MMMM-d-YYYY);
 });
