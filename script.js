@@ -14,14 +14,15 @@ $(document).ready(function () {
   // assigning the hour text to each div child or time-block
   let hourOfDay = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
     for (let i = 0; i < hourOfDay.length; i++){
+      // $('.hour-${i}').text(hourOfDay[i]);
       $('.hour').text(hourOfDay[i]);
-  }
+};
 
   // // to add id in a loop to each div
   // let hourID = ['hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17'];  
-  // for (let i = 1; i <= hourID.length; i++){
-  //   $('.time-block').add(id).attr(hourID[i]);
-  // }
+  // for (let i = 1; i < hourID.length; i++){
+  //   $('.time-block').addId(hourID[i]);
+  // };
 
   // saves text from text area to local storage
   $('.saveBtn').on('click', function(){
