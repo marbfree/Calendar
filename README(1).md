@@ -1,4 +1,4 @@
-# Calendar
+# Work Day Scheduler
 
 ## Description
 
@@ -8,9 +8,10 @@ To keep track of my daily schedule during business hours on a webpage.  To be ab
 
 https://marbfree.github.io/Calendar/
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+    
+![alt text](./Assets/images/FullScreenShot.png)
+![alt text](./Assets/images/ScreenShot.png)
+
 
 ## Credits
 
@@ -20,5 +21,5 @@ Thank you to askBCS for your efforts and support in helping me solve problems.
 
 ## Features
 
-Click the save button to save text when page refreshes
+Click the save button to save text when page refreshes!
 
