@@ -1,14 +1,17 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+// runs function once page is loaded
 $(document).ready(function () {
   
   // saves text from text area to local storage
   $('.saveBtn').on('click', function(){
-    let value = $('.saveBtn').siblings(".description").val();
-    let time = $('.saveBtn').parent().attr("id");
+    let value = $(this).siblings(".description").val();
+    let time = $(this).parent().attr("id");
     
       localStorage.setItem(time, value);
+      console.log(time)
   });    
 
   // current time from dayjs to compare and change past, present, and future styling
@@ -38,13 +41,13 @@ $(document).ready(function () {
   // runs the updateHours function
   updateHours();
 
-var allTextareas = $('.description')
+// Gets the local storage to display text from textarea upon refresh
+var allTextareas = $('.description');
   for (let i=0; i < allTextareas.length; i++){
     var parentID = $(allTextareas[i]).parent().attr("id");
     $(allTextareas[i]).val(localStorage.getItem(parentID));
     console.log(parentID);
-  }
-
+  };
 
   // Gets the local storage to display text from textarea upon refresh
   // $('#hour-9 .description').val(localStorage.getItem('hour-9'));
